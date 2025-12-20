@@ -100,7 +100,8 @@ model.compile(  optimizer = Adam(learning_rate=0.001),
 )
 print(model.summary())
 #training
-history=model.fit(
+history=model.fit(#öğrenme verisi görseştirmek için historyide saklanır accuacry ıou dice cofficent gibi metrikler için epohtaki değerleri tutarsın 
+    #hiper parametre optimizasoyn için öğrenme hızı veya katman sayısı değiştiğinde hangi aayarın en iyi sonuç veridğini anlamak için hsitory ile kıyalama yaparsın 
     ds_train,
     validation_data=ds_val,
     epochs=2,

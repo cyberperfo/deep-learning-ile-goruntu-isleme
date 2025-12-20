@@ -1,3 +1,14 @@
+""""
+1. Train (Eğitim) Aşaması: "Öğrenme ve Ezber Bozma"
+Eğitim aşamasında model, etiketlediğin resimlere bakarak nesneleri tanımayı öğrenir.
+
+İleri Besleme (Forward Pass): Model, gürültülü (henüz eğitilmemiş) ağırlıklarıyla resme bakar ve "Burada bir İHA var" diye tahmin yapar.
+
+Hata Hesaplama (Loss Calculation): Modelin tahmini ile senin çizdiğin gerçek kutu (Ground Truth) karşılaştırılır. Aradaki fark; box_loss (kutu konumu hatası) ve cls_loss (yanlış nesne tanıma hatası) olarak hesaplanır.
+
+Geri Yayılım (Backpropagation): tf.GradientTape veya PyTorch'un otomatik türev mekanizmasıyla, bu hatayı azaltmak için hangi "vidayı" (ağırlığı) ne kadar sıkması gerektiğini hesaplar.
+
+Optimizasyon: Senin kodundaki Momentum ve Weight Decay burada devreye girer; hataları sarsıntısız bir şekilde düzeltir ve modelin ağırlıklarını günceller."""
 """
 eo sensor:kamera radar lidar vb
 otonom araçlarda envivoment tanımlama
@@ -8,6 +19,7 @@ from ultralitics import YOLO
 model=YOLO('yolov8n.pt')#küçük model
 model.train(
     data='coco128.yaml',#dataset örnek data
+    #içinde nesnelerin etiketlerini ve nesne belirmtek için patlhleri belirtiyorsun
     epochs=10,
     imgsz=640,
     batch=16,

@@ -22,7 +22,9 @@ Sonuç: Ekranda nesnenin peşinden giden bir kutu ve üzerinde "UAV #1" gibi bir
 from unittest import result
 from ultralytics import YOLO
 import cv2
-#yolo mdelini yükle
+#veri seti yükleme komutları
+#bla bla bla
+#yolo modelini yükle
 model=YOLO('yolov8n.pt')#küçük model
 #video yolu
 video_path='data/videos/uav_tracking.mp4'
